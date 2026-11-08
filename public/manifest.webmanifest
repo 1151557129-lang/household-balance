@@ -1,0 +1,17 @@
+{
+  "name": "家庭资产负债",
+  "short_name": "家庭资产负债",
+  "description": "可视化家庭资产负债视图：资产、负债、现金流、净值趋势与消费评估，数据仅保存在本地浏览器。",
+  "lang": "zh-CN",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f9f9f7",
+  "theme_color": "#2a78d6",
+  "icons": [
+    { "src": "./icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "./icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "./icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
