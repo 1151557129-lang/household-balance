@@ -471,3 +471,32 @@ td.actions {
   opacity: 0;
   cursor: pointer;
 }
+
+/* 移动端顶栏：品牌一行，导航单行横向滚动，标签不再挤压 */
+@media (max-width: 640px) {
+  .topbar {
+    flex-wrap: wrap;
+    row-gap: 8px;
+  }
+
+  .nav {
+    order: 3;
+    flex-basis: 100%;
+    margin-left: 0;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    gap: 6px;
+    padding-bottom: 2px;
+  }
+
+  .nav button {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    padding: 7px 14px;
+  }
+
+  .icon-btn {
+    margin-left: auto;
+  }
+}
