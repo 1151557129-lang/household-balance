@@ -1,4 +1,3 @@
-import { useRef } from 'react';
 import { db } from '../db';
 import { useBalance } from '../hooks';
 import { formatMoney, formatPercent } from '../format';
@@ -6,7 +5,6 @@ import KpiCard from '../components/KpiCard';
 
 export default function Overview() {
   const b = useBalance();
-  const fileRef = useRef<HTMLInputElement>(null);
 
   const runway = b.runwayMonths == null ? '—' : `${b.runwayMonths.toFixed(1)} 个月`;
 
@@ -76,24 +74,22 @@ export default function Overview() {
           <button className="btn ghost" onClick={exportData}>
             导出 JSON
           </button>
-          <button className="btn ghost" onClick={() => fileRef.current?.click()}>
+          <label className="btn ghost import-label">
             导入 JSON
-          </button>
+            <input
+              type="file"
+              accept="application/json,.json"
+              onChange={(e) => {
+                const f = e.target.files?.[0];
+                if (f) importData(f);
+                e.target.value = '';
+              }}
+            />
+          </label>
         </div>
         <div className="muted" style={{ marginTop: 8 }}>
           数据只保存在本机浏览器，不会上传。请定期导出备份；换设备或清缓存前务必先导出。
         </div>
-        <input
-          ref={fileRef}
-          type="file"
-          accept="application/json,.json"
-          style={{ display: 'none' }}
-          onChange={(e) => {
-            const f = e.target.files?.[0];
-            if (f) importData(f);
-            e.target.value = '';
-          }}
-        />
       </div>
     </div>
   );

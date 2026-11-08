@@ -455,3 +455,19 @@ td.actions {
   color: var(--accent);
   font-weight: 600;
 }
+
+/* 文件导入按钮：label 原生包裹 input，兼容 iOS/安卓原生浏览器 */
+.import-label {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.import-label input[type='file'] {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
